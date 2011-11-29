@@ -1,0 +1,6 @@
+# SearchEngine  Keyword "URL with %s in place of query"
+Dict.CN           dict      http://dict.cn/%s
+RFC               rfc       http://tools.ietf.org/html/rfc%s
+Wikipedia         wiki      http://en.wikipedia.org/w/index.php?title=Special:Search&search=%s
+Debian Package    debian    http://packages.debian.org/%s
+Debian Source     debian    http://packages.debian.org/src:%s
