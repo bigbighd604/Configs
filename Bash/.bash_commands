@@ -1,0 +1,17 @@
+# Enable color output for grep
+export GREP_OPTIONS=--colour=auto
+
+# Log all command line types.
+function command_log() {
+    local -i return_value=$?
+    local last_line="${BASH_COMMAND}"
+    local logfile="${HOME}/.shell_logs/${HOSTNAME}"
+    local current_ts="$(date '+%Y-%m-%d %H:%M:%S')"
+
+    if [ "${last_line}" != "" ]; then
+        echo "${current_ts} [${$}%${LOGNAME}@${HOSTNAME%%.*}:${PWD}]'${last_line# }' -> ${return_value}" >> "${logfile}"
+    fi
+}
+
+trap command_log DEBUG
+
