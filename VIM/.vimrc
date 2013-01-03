@@ -143,23 +143,6 @@ else
 
 endif " has("autocmd")
 
-" perforce commands
-command! -nargs=* -complete=file PEdit :!g4 edit %
-command! -nargs=* -complete=file PRevert :!g4 revert %
-command! -nargs=* -complete=file PDiff :!g4 diff %
-
-function! s:CheckOutFile()
- if filereadable(expand("%")) && ! filewritable(expand("%"))
-   let option = confirm("Readonly file, do you want to checkout from p4?"
-         \, "&Yes\n&No", 1, "Question")
-   if option == 1
-     PEdit
-   endif
-   edit!
- endif
-endfunction
-au FileChangedRO * nested :call <SID>CheckOutFile()
-
 " Highlighting columns 81 and 82
 function! HighlightTooLongLines()
   highlight def link RightMargin Error
